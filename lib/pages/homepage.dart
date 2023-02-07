@@ -1,3 +1,4 @@
+import 'package:ako_app/components/topBar.dart';
 import 'package:flutter/material.dart';
 
 class homePage extends StatefulWidget {
@@ -61,12 +62,54 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        Center(
-          child: Text('Ako Me'),
-        )
-      ],
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20.0,
+          vertical: 10.0,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 18,
+            ),
+            const topBar(),
+            const SizedBox(
+              height: 30,
+            ),
+            const Text(
+              'Welcome back',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+              ),
+            ),
+            const Text(
+              'Saymon!',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              color: Colors.grey[200],
+              child: const TextField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Search for new Knowledge',
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
