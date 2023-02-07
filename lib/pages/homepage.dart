@@ -9,9 +9,7 @@ class homePage extends StatefulWidget {
 
 class _homePageState extends State<homePage> {
   final List<Widget> _screens = [
-    const Center(
-      child: Text('Ako Home'),
-    ),
+    const Home(),
     const Center(
       child: Text('Ako Events'),
     ),
@@ -54,6 +52,21 @@ class _homePageState extends State<homePage> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.person_2_rounded), label: 'Profile'),
           ]),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: const [
+        Center(
+          child: Text('Ako Me'),
+        )
+      ],
     );
   }
 }
