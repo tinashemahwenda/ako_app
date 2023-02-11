@@ -1,5 +1,7 @@
+import 'package:ako_app/components/bannerCard.dart';
 import 'package:ako_app/components/searchBar.dart';
 import 'package:ako_app/components/topBar.dart';
+import 'package:ako_app/pages/readingPage.dart';
 import 'package:flutter/material.dart';
 
 class homePage extends StatefulWidget {
@@ -12,9 +14,7 @@ class homePage extends StatefulWidget {
 class _homePageState extends State<homePage> {
   final List<Widget> _screens = [
     const Home(),
-    const Center(
-      child: Text('Ako Events'),
-    ),
+    const readingPage(),
     const Center(
       child: Text('Ako Add'),
     ),
@@ -65,98 +65,69 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    Color DimBlue = const Color.fromARGB(255, 5, 14, 51);
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20.0,
-          vertical: 10.0,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 18,
-            ),
-            const topBar(),
-            const SizedBox(
-              height: 30,
-            ),
-            const Text(
-              'Welcome back',
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20.0,
+            vertical: 10.0,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              SizedBox(
+                height: 18,
               ),
-            ),
-            const Text(
-              'Saymon!',
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
+              topBar(),
+              SizedBox(
+                height: 30,
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const searchBar(),
-            const SizedBox(
-              height: 20,
-            ),
-            Container(
-              width: width,
-              padding: const EdgeInsets.all(25),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: const Color.fromARGB(255, 5, 14, 51),
+              Text(
+                'Welcome back',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 5, 14, 51),
+                  fontFamily: 'OpenSans',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Start Learning',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                  const Text(
-                    'New Student!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    width: 120,
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text(
-                          'Categories',
-                          style: TextStyle(
-                            color: Colors.pink,
-                          ),
-                        ),
-                        Icon(
-                          Icons.arrow_right_alt,
-                          color: Colors.pink,
-                        )
-                      ],
-                    ),
-                  )
-                ],
+              Text(
+                'Saymon!',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 5, 14, 51),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),
               ),
-            )
-          ],
+              SizedBox(
+                height: 20,
+              ),
+              searchBar(),
+              SizedBox(
+                height: 20,
+              ),
+              bannerCard(),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                'Classes in Progress',
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(255, 5, 14, 51),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              lessonCard(),
+              SizedBox(
+                height: 10,
+              ),
+              lessonCard(),
+            ],
+          ),
         ),
       ),
     );
