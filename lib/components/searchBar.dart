@@ -10,9 +10,11 @@ class searchBar extends StatelessWidget {
       color: Colors.grey[200],
       child: const TextField(
         decoration: InputDecoration(
-          border: InputBorder.none,
-          hintText: 'Search for new Knowledge',
-        ),
+            border: InputBorder.none,
+            hintText: 'Search for new Knowledge',
+            hintStyle: TextStyle(
+              fontSize: 14,
+            )),
       ),
     );
   }
