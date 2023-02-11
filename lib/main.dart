@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
       home: const homePage(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: 'OpenSans',
       ),
       debugShowCheckedModeBanner: false,
     );
